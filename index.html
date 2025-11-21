@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리그 오브 레전드 팀 구성</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 상단 컨트롤 패널 -->
+    <div class="top-controls">
+        <div class="draft-status" id="draftStatus">
+            <span class="draft-round">R<strong id="currentRound">1</strong></span>
+            <span class="draft-position"><strong id="currentPositionName">탑</strong></span>
+            <span class="draft-turn"><strong id="currentTeamName">팀 1</strong> 차례</span>
+        </div>
+        <div class="control-buttons">
+            <button id="startDraftBtn" class="start-draft-btn">드래프트 시작</button>
+            <button id="endDraftBtn" class="end-draft-btn" style="display: none;">드래프트 종료</button>
+            <button id="stopDraftBtn" class="stop-draft-btn" style="display: none;">드래프트 중지</button>
+            <button id="randomBtn" class="random-btn">팀 순서 랜덤</button>
+            <button id="changeOrderBtn" class="change-order-btn">순서 변경</button>
+            <button id="resetBtn" class="reset-btn">리셋</button>
+        </div>
+    </div>
+
+    <div class="main-layout">
+
+        <div class="teams-container">
+            <div class="team" data-team="0" draggable="false">
+                <h3 class="team-title">팀 1 <button class="my-team-btn" data-team="0">내 팀</button></h3>
+                <div class="team-grid">
+                    <div class="position-slot jgl captain">
+                        <div class="player-container">
+                            <img src="jgl/갱맘.gif" alt="정글" class="player-img fixed">
+                            <div class="player-name-label">갱맘</div>
+                        </div>
+                    </div>
+                    <div class="position-slot top">
+                        <div class="empty-slot" data-position="top"></div>
+                    </div>
+                    <div class="position-slot mid">
+                        <div class="empty-slot" data-position="mid"></div>
+                    </div>
+                    <div class="position-slot bot">
+                        <div class="empty-slot" data-position="bot"></div>
+                    </div>
+                    <div class="position-slot sup">
+                        <div class="empty-slot" data-position="sup"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team" data-team="1" draggable="false">
+                <h3 class="team-title">팀 2 <button class="my-team-btn" data-team="1">내 팀</button></h3>
+                <div class="team-grid">
+                    <div class="position-slot jgl captain">
+                        <div class="player-container">
+                            <img src="jgl/뱅.gif" alt="정글" class="player-img fixed">
+                            <div class="player-name-label">뱅</div>
+                        </div>
+                    </div>
+                    <div class="position-slot top">
+                        <div class="empty-slot" data-position="top"></div>
+                    </div>
+                    <div class="position-slot mid">
+                        <div class="empty-slot" data-position="mid"></div>
+                    </div>
+                    <div class="position-slot bot">
+                        <div class="empty-slot" data-position="bot"></div>
+                    </div>
+                    <div class="position-slot sup">
+                        <div class="empty-slot" data-position="sup"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team" data-team="2" draggable="false">
+                <h3 class="team-title">팀 3 <button class="my-team-btn" data-team="2">내 팀</button></h3>
+                <div class="team-grid">
+                    <div class="position-slot jgl captain">
+                        <div class="player-container">
+                            <img src="jgl/소우릎.gif" alt="정글" class="player-img fixed">
+                            <div class="player-name-label">소우릎</div>
+                        </div>
+                    </div>
+                    <div class="position-slot top">
+                        <div class="empty-slot" data-position="top"></div>
+                    </div>
+                    <div class="position-slot mid">
+                        <div class="empty-slot" data-position="mid"></div>
+                    </div>
+                    <div class="position-slot bot">
+                        <div class="empty-slot" data-position="bot"></div>
+                    </div>
+                    <div class="position-slot sup">
+                        <div class="empty-slot" data-position="sup"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team" data-team="3" draggable="false">
+                <h3 class="team-title">팀 4 <button class="my-team-btn" data-team="3">내 팀</button></h3>
+                <div class="team-grid">
+                    <div class="position-slot jgl captain">
+                        <div class="player-container">
+                            <img src="jgl/울프.gif" alt="정글" class="player-img fixed">
+                            <div class="player-name-label">울프</div>
+                        </div>
+                    </div>
+                    <div class="position-slot top">
+                        <div class="empty-slot" data-position="top"></div>
+                    </div>
+                    <div class="position-slot mid">
+                        <div class="empty-slot" data-position="mid"></div>
+                    </div>
+                    <div class="position-slot bot">
+                        <div class="empty-slot" data-position="bot"></div>
+                    </div>
+                    <div class="position-slot sup">
+                        <div class="empty-slot" data-position="sup"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team" data-team="4" draggable="false">
+                <h3 class="team-title">팀 5 <button class="my-team-btn" data-team="4">내 팀</button></h3>
+                <div class="team-grid">
+                    <div class="position-slot jgl captain">
+                        <div class="player-container">
+                            <img src="jgl/큐베.gif" alt="정글" class="player-img fixed">
+                            <div class="player-name-label">큐베</div>
+                        </div>
+                    </div>
+                    <div class="position-slot top">
+                        <div class="empty-slot" data-position="top"></div>
+                    </div>
+                    <div class="position-slot mid">
+                        <div class="empty-slot" data-position="mid"></div>
+                    </div>
+                    <div class="position-slot bot">
+                        <div class="empty-slot" data-position="bot"></div>
+                    </div>
+                    <div class="position-slot sup">
+                        <div class="empty-slot" data-position="sup"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 선수 선택 패널 -->
+        <div class="players-panel">
+            <!-- 포지션별 선수 라인 -->
+            <div class="position-line">
+                <h3>탑</h3>
+                <div class="position-players" data-position="top" id="topPlayers"></div>
+            </div>
+
+            <div class="position-line">
+                <h3>미드</h3>
+                <div class="position-players" data-position="mid" id="midPlayers"></div>
+            </div>
+
+            <div class="position-line">
+                <h3>원딜</h3>
+                <div class="position-players" data-position="bot" id="botPlayers"></div>
+            </div>
+
+            <div class="position-line">
+                <h3>서포터</h3>
+                <div class="position-players" data-position="sup" id="supPlayers"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-controls">
+        <button id="dark-mode-toggle" title="다크모드 전환">🌙</button>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/dragDrop.js"></script>
+    <script src="js/slotMachine.js"></script>
+    <script src="js/main.js"></script>
+    <script src="debug.js"></script>
+</body>
+
+</html>

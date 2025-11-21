@@ -1,0 +1,285 @@
+/* 전체 레이아웃 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+}
+
+/* 상단 컨트롤 패널 */
+.top-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.draft-status {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.draft-status strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.control-buttons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transition: all 0.2s;
+}
+
+.control-buttons button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* 메인 레이아웃 */
+.main-layout {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+}
+
+/* 팀 컨테이너 - 왼쪽 */
+.teams-container {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.team {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.3s;
+}
+
+.team.draft-turn {
+    border-color: #667eea;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.team-header h3 {
+    font-size: 14px;
+    color: #333;
+}
+
+.my-team-btn {
+    padding: 4px 8px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.team-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.position-slot {
+    min-height: 70px;
+    border: 2px dashed #ddd;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background: #fafafa;
+}
+
+.position-slot.jgl {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.empty-slot {
+    font-size: 11px;
+    color: #999;
+}
+
+.player-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.position-label {
+    font-size: 9px;
+    color: white;
+    margin-top: 2px;
+}
+
+.player-name-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 2px;
+}
+
+.position-slot.jgl .player-name-label {
+    color: white;
+}
+
+/* 선수 패널 - 오른쪽 */
+.players-panel {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.position-line {
+    margin-bottom: 15px;
+}
+
+.position-line h3 {
+    font-size: 14px;
+    color: #667eea;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #667eea;
+}
+
+.position-players {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* 선수 카드 */
+.player-card {
+    width: 80px;
+    padding: 8px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
+    cursor: move;
+    transition: all 0.2s;
+}
+
+.player-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.player-card.selected {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.player-card.used {
+    opacity: 0.3;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.player-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 4px;
+}
+
+.player-card h4 {
+    margin: 0;
+    font-size: 11px;
+    color: #333;
+}
+
+/* 로고 */
+.logo-section {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.logo-container {
+    display: flex;
+    gap: 8px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+/* 레이아웃 컨트롤 */
+.layout-controls {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.layout-controls button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.layout-controls button:hover {
+    transform: scale(1.1);
+    background: #764ba2;
+}

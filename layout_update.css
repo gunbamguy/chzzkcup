@@ -1,0 +1,296 @@
+/* 메인 레이아웃 - 왼쪽 팀, 오른쪽 선수 */
+.main-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* 팀 컨테이너 - 왼쪽 세로 배치 */
+.teams-container {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+}
+
+.team {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.team:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.team-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.team-images {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.position-slot {
+    flex: 0 0 calc(50% - 4px);
+    min-height: 80px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.position-slot.jgl {
+    flex: 0 0 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+}
+
+.position-slot:hover {
+    border-color: #4CAF50;
+    background: #f0f8f0;
+}
+
+.empty-slot {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.player-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.player-img.fixed {
+    cursor: default;
+}
+
+.position-label {
+    font-size: 10px;
+    color: white;
+    margin-top: 4px;
+}
+
+.player-name-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 4px;
+}
+
+.position-slot.jgl .player-name-label {
+    color: white;
+}
+
+/* 선수 패널 - 오른쪽 */
+.players-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+}
+
+.panel-header {
+    margin-bottom: 20px;
+}
+
+.panel-header h2 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.control-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.edit-btn, .random-btn, .reset-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+}
+
+.edit-btn:hover, .random-btn:hover, .reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* 포지션 섹션 */
+.position-section {
+    margin-bottom: 30px;
+}
+
+.position-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.position-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.position-players {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* 선수 카드 */
+.player-card {
+    width: 100px;
+    padding: 10px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: move;
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    border-color: #4CAF50;
+}
+
+.player-card.selected {
+    border-color: #4CAF50;
+    background: #e8f5e9;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+.player-card.used {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.player-card.dragging {
+    opacity: 0.5;
+}
+
+.player-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.player-card h4 {
+    margin: 0;
+    font-size: 13px;
+    color: #333;
+}
+
+/* 내 팀 버튼 */
+.my-team-btn {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.my-team-btn:hover {
+    transform: scale(1.05);
+}
+
+.my-team-btn.selected {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+/* 로고 섹션 */
+.logo-section {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.logo-container {
+    display: flex;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+/* 레이아웃 컨트롤 */
+.layout-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.layout-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.layout-controls button:hover {
+    transform: scale(1.1);
+}
